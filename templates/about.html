@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <!-- Google Fonts Stylesheet -->
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" 
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap">
+    <title>BrainAi</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <link href="public/build/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideIn {
+            0% { transform: translateX(-50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        .slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+        .slide-in {
+            animation: slideIn 0.8s ease-out forwards;
+        }
+        .hover-fade:hover {
+            transition: 0.3s ease;
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(9, 38, 121, 0.8), rgba(9, 63, 121, 0.8), rgba(30, 50, 115, 0.8));
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .btn-animate {
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-animate:hover {
+            background-color: #019863;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Smooth image transitions */
+        .image-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        .image-transition:hover {
+            transform: scale(1.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* Background effect */
+        body {
+            background: none;
+        }
+        /* Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+        /* Section Styling */
+        section {
+            padding: 2rem;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        /* Custom Box for About Brain Tumor Section */
+        .about-tumor-box {
+            background-color: #019863;
+            border-radius: 15px; /* Curvy edges */
+            padding: 20px; /* Padding for content */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);}
+        /* Custom Animations */
+@keyframes slideIn {
+    0% { transform: translateX(-50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+.slide-in {
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+ /* Custom Box for About Brain Tumor Section */
+.about-tumor-box {
+    background-color: #019863; /* Original color */
+    background: linear-gradient(135deg, #38b2ac, #2b6cb0); /* New blue-green gradient */
+    border-radius: 15px; /* Curvy edges */
+    padding: 20px; /* Padding for content */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+footer .text-white {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+footer .text-white:hover {
+    color: #019863; /* Changed hover color to #019863 */
+}
+
+          
+    </style>
+</head>
+<body>
+    <div class="relative flex size-full min-h-screen flex-col bg-black group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+        <div class="layout-container flex h-full grow flex-col fade-in">
+            <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3 bg-opacity-80 backdrop-blur-sm">
+                <div class="flex items-center gap-4 text-[#ffffff]">
+                    <div class="size-4">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_6_330)">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_6_330">
+                                    <rect width="48" height="48" fill="white"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">BrainAi</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-8">
+                    <div class="flex items-center gap-9">
+                        <li><a class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863] transition-all duration-300" href="{{ url_for('home') }}">Home</a></li>
+                        <li><a class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863] transition-all duration-300" href="{{ url_for('about') }}">About</a></li>
+                        <li><a class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863] transition-all duration-300" href="{{ url_for('detect') }}">Detect</a></li>
+                        <li><a class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863] transition-all duration-300" href="{{ url_for('contact') }}">Contact</a></li>
+                    </div>
+                </div>
+            </header>
+
+            <div class="px-40 flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                    <section class="@container">
+                        <div class="@[480px]:p-4 slide-up">
+                            <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%), url("https://cdn.usegalileo.ai/sdxl10/028e608e-65c7-4f7a-ae6a-d88b1c086e89.png");'>
+                                <div class="flex flex-col gap-2 text-left">
+                                    <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">Understand Brain Tumors</h1>
+                                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">Learn about the different types of brain tumors, how they are diagnosed and treated, and how they can affect your life.</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                   <!-- About Brain Tumor Section -->
+<div class="about-tumor-box bg-gradient-to-r from-teal-500 to-blue-600"> <!-- Updated the background gradient -->
+  <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">About Brain Tumor</h2>
+  <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4 fade-in">
+      A brain tumor is an abnormal growth in the brain, classified as primary (originating in the brain) or secondary (spreading from other body parts). Symptoms can vary widely based on the tumor's size and location.
+  </p>
+</div>
+
+
+
+                    <!-- Types of Brain Tumors Section -->
+<div class="slide-in fade-in"> <!-- Added fade-in and slide-in classes -->
+  <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Types of Brain Tumors</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
+      <div class="bg-gradient-to-r from-blue-400 to-teal-500 hover-fade rounded-lg p-4 text-center">
+          <h3 class="text-white text-lg font-semibold">Astrocytoma</h3>
+          <p class="text-white">A tumor that originates from astrocytes, a type of glial cell.</p>
+      </div>
+      <div class="bg-gradient-to-r from-teal-400 to-green-500 hover-fade rounded-lg p-4 text-center">
+          <h3 class="text-white text-lg font-semibold">Meningioma</h3>
+          <p class="text-white">A tumor that arises from the meninges, the protective membranes covering the brain.</p>
+      </div>
+      <div class="bg-gradient-to-r from-blue-600 to-teal-600 hover-fade rounded-lg p-4 text-center">
+          <h3 class="text-white text-lg font-semibold">Glioblastoma</h3>
+          <p class="text-white">A highly aggressive brain tumor that can arise from any glial cells.</p>
+      </div>
+      <div class="bg-gradient-to-r from-green-600 to-blue-700 hover-fade rounded-lg p-4 text-center">
+          <h3 class="text-white text-lg font-semibold">Oligodendroglioma</h3>
+          <p class="text-white">A tumor that originates from oligodendrocytes, cells that produce the myelin sheath.</p>
+      </div>
+  </div>
+</div>
+
+                    <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Symptoms of brain tumors</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/df1a31ff-24ea-4ade-b930-80402104ab18.png");'
+                ></div>
+                <div>
+                  <p class="text-white text-base font-medium leading-normal">Headaches</p>
+                  <p class="text-[#9dabb8] text-sm font-normal leading-normal">Persistent headaches that may get worse over time</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/7d96a303-4604-466f-b735-0b1cb9d7ccfd.png");'
+                ></div>
+                <div>
+                  <p class="text-white text-base font-medium leading-normal">Seizures</p>
+                  <p class="text-[#9dabb8] text-sm font-normal leading-normal">Sudden, uncontrolled movements or loss of consciousness</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/f5420954-0a3a-43e8-b85d-399a43549ded.png");'
+                ></div>
+                <div>
+                  <p class="text-white text-base font-medium leading-normal">Nausea and vomiting</p>
+                  <p class="text-[#9dabb8] text-sm font-normal leading-normal">Feeling sick or being sick (vomiting)</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/f5355fc7-c646-4492-a2f1-77be47334657.png");'
+                ></div>
+                <div>
+                  <p class="text-white text-base font-medium leading-normal">Changes in vision</p>
+                  <p class="text-[#9dabb8] text-sm font-normal leading-normal">Blurred, double or loss of vision</p>
+                </div>
+              </div>
+            </div>
+
+           <!-- Diagnosis and Treatment Section -->
+<div class="slide-in mt-6 p-6 bg-gradient-to-r from-teal-500 to-blue-500 rounded-lg shadow-lg">
+  <h2 class="text-white text-2xl font-bold">Diagnosis and Treatment</h2>
+  <p class="text-white mt-2">
+      Brain tumors are diagnosed through imaging tests like MRI and CT scans, followed by a biopsy to confirm the type. Treatment options vary based on the tumor type and location, and may include surgery, radiation therapy, and chemotherapy.
+  </p>
+  <div class="flex flex-wrap gap-4 mt-4">
+      <div class="flex-1 min-w-[120px] bg-teal-100 rounded-lg shadow-md p-4 hover-fade">
+          <h3 class="font-bold">Diagnosis</h3>
+          <p>Imaging tests (MRI, CT scans)</p>
+      </div>
+      <div class="flex-1 min-w-[120px] bg-teal-100 rounded-lg shadow-md p-4 hover-fade">
+          <h3 class="font-bold">Surgery</h3>
+          <p>Removing the tumor</p>
+      </div>
+      <div class="flex-1 min-w-[120px] bg-teal-100 rounded-lg shadow-md p-4 hover-fade">
+          <h3 class="font-bold">Radiation Therapy</h3>
+          <p>Targeted treatment to kill tumor cells</p>
+      </div>
+      <div class="flex-1 min-w-[120px] bg-teal-100 rounded-lg shadow-md p-4 hover-fade">
+          <h3 class="font-bold">Chemotherapy</h3>
+          <p>Using drugs to eliminate cancer cells</p>
+      </div>
+  </div>
+</div>
+
+        <!-- Research and Statistics Section -->
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Research and Statistics</h2>
+<section class="about-tumor-box p-5 mb-8 bg-gradient-to-r from-blue-500 to-teal-600 rounded-lg shadow-lg fade-in">
+    <h3 class="text-lg font-semibold text-white">Current Research</h3>
+    <p class="text-[#d0d7de]">Researchers are exploring new treatments and therapies to improve outcomes for brain tumor patients.</p>
+    <h3 class="text-lg font-semibold text-white">Statistics</h3>
+    <p class="text-[#d0d7de]">Brain tumors account for approximately 1.4% of all cancers, with an estimated 24,000 new cases diagnosed each year in the U.S.</p>
+</section>
+
+
+        
+                    
+
+      
+                </div>
+            </div>
+        </div>
+    </div>
+
+                       <!-- Footer -->
+<footer class="flex justify-between items-center border-t border-solid border-b-white px-10 py-4" style="background-color: black; color: white; padding: 20px;">
+  <p class="text-white text-sm">© 2024 BrainAi. All rights reserved.</p>
+  <div class="flex items-center gap-4">
+      <a href="#" class="text-white hover:text-[#156bc1]">Privacy Policy</a>
+      <a href="#" class="text-white hover:text-[#156bc1]">Terms of Service</a>
+  </div>
+</footer>
+
+</body>
+</html>

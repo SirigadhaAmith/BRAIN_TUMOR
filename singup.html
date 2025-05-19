@@ -1,0 +1,187 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+    <title>Galileo Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      .background-container {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        flex: 1;
+      }
+
+      .curved-line {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .curved-line svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      .image-container {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        max-height: 100%;
+        overflow: hidden;
+      }
+
+      .image-container img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .footer {
+        margin-top: auto; /* Pushes footer to the bottom */
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-screen bg-[#111418]">
+    <div class="relative flex size-full flex-col group/design-root overflow-x-hidden background-container">
+      <div class="curved-line">
+        <svg width="100%" height="100%">
+          <path d="M0,0 Q100,50 0,100 L0,0 Z" fill="#111418"></path>
+        </svg>
+      </div>
+      <div class="image-container">
+        <img src="C:\Users\singu\OneDrive\Pictures\Screenshots\Brain_Tumor\picture3.jpg" alt="Conference Banner" />
+      </div>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#283039] px-10 py-3">
+          <div class="flex items-center gap-4 text-white">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_535)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_535"><rect width="48" height="48" fill="white"></rect></clipPath>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">BrainAi</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal" href="#">How it works</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Pricing</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Contact us</a>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#258df4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Sign in</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Signup Section -->
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
+            <h2 class="text-white tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">Sign up for BrainTumor.ai</h2>
+
+            <!-- Email Input -->
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-white text-base font-medium leading-normal pb-2">Email</p>
+                <input
+                  placeholder="you@example.com"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border border-[#3b4754] bg-[#1b2127] focus:border-[#3b4754] h-14 placeholder:text-[#9cabba] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+
+            <!-- Username Input -->
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-white text-base font-medium leading-normal pb-2">Username</p>
+                <input
+                  placeholder="username"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border border-[#3b4754] bg-[#1b2127] focus:border-[#3b4754] h-14 placeholder:text-[#9cabba] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+
+            <!-- Password Input -->
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-white text-base font-medium leading-normal pb-2">Password</p>
+                <input
+                  type="password"
+                  placeholder=""
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border border-[#3b4754] bg-[#1b2127] focus:border-[#3b4754] h-14 placeholder:text-[#9cabba] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-white text-base font-medium leading-normal pb-2">Confirm password</p>
+                <input
+                  type="password"
+                  placeholder=""
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border border-[#3b4754] bg-[#1b2127] focus:border-[#3b4754] h-14 placeholder:text-[#9cabba] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+
+            <!-- Terms Checkbox -->
+            <div class="px-4">
+              <label class="flex gap-x-3 py-3 flex-row">
+                <input
+                  type="checkbox"
+                  class="h-5 w-5 rounded border-[#3b4754] border-2 bg-transparent text-[#258df4] checked:bg-[#258df4] checked:border-[#258df4] focus:ring-offset-transparent focus:outline-none"
+                />
+                <p class="text-white text-base font-normal leading-normal">I agree to the Terms of Service and Privacy Policy.</p>
+              </label>
+            </div>
+
+            <!-- Sign Up Button -->
+            <div class="flex px-4 py-3">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#258df4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Sign up</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="flex justify-center footer mt-auto">
+          <div class="flex max-w-[960px] flex-col">
+            <div class="text-center text-white py-4">
+              <p>&copy; 2024 BrainTumor.ai. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

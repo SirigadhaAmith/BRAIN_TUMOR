@@ -1,0 +1,45 @@
+    /* 3D Button Animation */
+    .animate-button {
+        perspective: 1000px;
+      }
+  
+      .animate-button button {
+        transition: transform 0.3s, box-shadow 0.3s;
+        transform-style: preserve-3d;
+      }
+  
+      .animate-button button:hover {
+        transform: translateZ(10px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+  
+      /* Feature Box Hover Animation */
+      .feature-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        transform-style: preserve-3d;
+      }
+  
+      .feature-card:hover {
+        transform: scale(1.11); /* Enlarge the feature boxes on hover */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+  
+      .custom-bg-color {
+        background-color: #019863;
+      }
+  
+      /* Background Zoom-out Animation */
+      @keyframes zoomOut {
+        0% {
+          transform: scale(1.2);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+  
+      .background-zoom {
+        animation: zoomOut 2.0s ease-out forwards;
+      }

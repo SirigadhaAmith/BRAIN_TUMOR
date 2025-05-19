@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
+  <!-- Google Fonts Stylesheet -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" />
+
+  <title>BrainAi</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="public/build/tailwind.css" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <style>
+    footer {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+footer .text-white {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+footer .text-white:hover {
+  color: #019863; /* Changed hover color to #019863 */
+}
+</style>
+</head>
+<body>
+  <div class="relative flex size-full min-h-screen flex-col bg-black group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3">
+        <div class="flex items-center gap-4 text-[#ffffff]">
+          <div class="size-4">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6_330)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
+                  fill="currentColor"
+                ></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_6_330"><rect width="48" height="48" fill="white"></rect></clipPath>
+              </defs>
+            </svg>
+          </div>
+          <h2 class="text-[#ffffff] text-lg font-bold leading-tight tracking-[-0.015em]">BrainAi</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+          <div class="flex items-center gap-9">
+            <li><a class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863]" href="{{ url_for('home') }}">Home</a></li>
+            <li><a class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863]" href="{{ url_for('about') }}">About</a></li>
+            <li><a class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863]" href="{{ url_for('detect') }}">Detect</a></li>
+            <li><a class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863]" href="{{ url_for('contact') }}">Contact</a></li>
+          </div>
+        </div>
+      </header>
+      
+      <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <h2 class="text-[#FFFFFF] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Detect a brain tumor</h2>
+          <p class="text-[#FFFFFF] text-base font-normal leading-normal pb-3 pt-1 px-4">Upload an MRI scan for a quick prediction on whether there is a brain tumor. The results are not a substitute for medical advice. Consult a healthcare professional if you have concerns.</p>
+
+          <form id="upload-form" action="/predict" method="post" enctype="multipart/form-data" class="flex w-full gap-4 flex-col">
+            <div class="flex flex-col gap-4 p-4">
+              <input type="file" id="file-upload" name="image" accept="image/*" class="hidden"/>
+              <button type="button"
+              class="upload-button flex min-h-[48px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-6 flex-1 bg-[#019863] text-[#FFFFFF] text-lg font-bold leading-normal tracking-[0.015em]">Choose file</button>
+              <!-- <button class="min-h-[48px] max-w-[480px] cursor-pointer items-center justify-center rounded-lg px-6 flex-1 bg-[#019863] text-[#FFFFFF] text-lg font-bold">
+                Choose file
+              </button> -->
+            </div>
+
+           <div class="flex flex-col gap-3 p-4">
+            <div class="flex gap-6 justify-between">
+              <p class="text-[#FFFFFF] text-base font-medium leading-normal">Uploading</p>
+            </div>
+            <div class="rounded bg-[#3D3D3D]">
+              <div id="progress-bar" class="h-2 rounded bg-[#019863]" style="width: 0%;"></div>
+            </div>
+           </div>
+
+           <div class="flex flex-col gap-4 p-4">
+            <button type="button"
+              class="start-over-button flex min-h-[48px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-6 flex-1 bg-[#019863] text-[#FFFFFF] text-lg font-bold leading-normal tracking-[0.015em]"
+              onclick="resetUpload();">Start over</button>
+           </div>
+
+            <!-- Submit button for predicting -->
+            <div class="flex flex-col gap-4 p-4">
+              <button type="submit" form="upload-form" 
+                class="predict-button flex min-h-[48px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-6 flex-1 bg-[#019863] text-[#FFFFFF] text-lg font-bold leading-normal tracking-[0.015em]">Predict</button>
+            </div>
+          </form>  
+
+          <!-- Display result -->
+          <div id="result-text" class="output-image tumor-detected text-white text-base mt-3"></div>
+
+        </div>
+      </div>
+
+      <footer class="flex justify-between items-center border-t border-solid border-b-white px-10 py-4">
+        <p class="text-white text-sm">© 2024 BrainAi. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-white hover:text-[#156bc1]">Privacy Policy</a>
+          <a href="#" class="text-white hover:text-[#156bc1]">Terms of Service</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  
+</body>
+</html>

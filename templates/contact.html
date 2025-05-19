@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
+    <!-- Google Fonts Stylesheet -->
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap"
+    />
+
+    <title>BrainAi</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <link href="static/tailwind.css" rel="stylesheet">
+
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <style>
+      footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+footer .text-white {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+footer .text-white:hover {
+    color: #019863; /* Changed hover color to #019863 */
+}
+</style>
+
+    <!-- Custom Styles
+    <style>
+      /* Custom Font Family */
+      .font-custom {
+        font-family: "Space Grotesk", "Noto Sans", sans-serif;
+      }
+
+      /* Custom Styles for Unique Creativity */
+      .gradient-bg {
+        background: black; /* Changed to black */
+      }
+
+      /* Animation for Buttons */
+      .btn-animate {
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      .btn-animate:hover {
+        transform: translateY(-2px);
+        background-color: #019863;
+      }
+
+      /* Responsive Container */
+      @container (min-width: 640px) {
+        .contact-form {
+          max-width: 600px;
+        }
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-black group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+        <div class="layout-container flex h-full grow flex-col">
+          <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3">
+            <div class="flex items-center gap-4 text-[#ffffff]">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6_330)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
+                      fill="currentColor"
+                    ></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_6_330"><rect width="48" height="48" fill="white"></rect></clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-[#ffffff] text-lg font-bold leading-tight tracking-[-0.015em]">BrainAi</h2>
+            </div>
+            <div class="flex flex-1 justify-end gap-8">
+              <div class="flex items-center gap-9">
+      
+                  <li><a  class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863]"
+                    href="{{ url_for('home') }}">Home</a></li>
+    
+                  <li><a  class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863]"
+                    href="{{ url_for('about') }}">About</a></li>
+                    
+                  <li><a  class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863]"
+                    href="{{ url_for('detect') }}">Detect</a></li>
+    
+                <li><a  class="text-[#ffffff] text-sm font-medium leading-normal hover:text-[#019863]"
+                    href="{{ url_for('contact') }}">Contact</a></li>
+    
+              </div>
+            </div>
+            
+        </header>
+        <!-- End of Navbar -->
+
+        <!-- Hero Section -->
+        <div class="flex flex-col items-center justify-center bg-gray-800 py-16 px-4">
+          <h1 class="text-4xl font-extrabold text-white mb-4">Get in Touch</h1>
+          <p class="text-lg text-gray-300">
+            We're here to help! Reach out with any questions or concerns.
+          </p>
+        </div>
+        <!-- End of Hero Section -->
+
+        <!-- Contact Form Section -->
+        <div class="flex flex-1 justify-center py-10 px-4">
+          <div class="w-full max-w-2xl bg-gray-900 p-8 rounded-lg shadow-lg">
+            
+            <form action="{{ url_for('contact') }}" method="POST" class="space-y-6">
+              <!-- Name Field -->
+              <div>
+                <label for="name" class="block text-sm font-medium text-white">Your Name</label>
+                <div class="mt-1">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Jane Doe"
+                    required
+                    class="block w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#156bc1] focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <!-- Email Field -->
+              <div>
+                <label for="email" class="block text-sm font-medium text-white">Your Email Address</label>
+                <div class="mt-1">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="jane.doe@gmail.com"
+                    required
+                    class="block w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#156bc1] focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div>
+                <label for="message" class="block text-sm font-medium text-white">Your Message</label>
+                <div class="mt-1">
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows="4"
+                    placeholder="Type your message here..."
+                    required
+                    class="block w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#156bc1] focus:border-transparent"
+                  ></textarea>
+                </div>
+              </div>
+              
+              <!-- Submit Button -->
+              <div>
+                <button
+                  type="submit"
+                  class="w-full py-3 bg-[#019863] text-white rounded-md font-medium hover:bg-[#118f62] transition-all duration-300 btn-animate"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+  {% with messages = get_flashed_messages(with_categories=True) %}
+  {% if messages %}
+    <ul class="flashes">
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+        <!-- End of Contact Form Section -->
+
+        <!-- Footer Section -->
+        <footer class="flex justify-between items-center border-t border-solid border-b-white px-10 py-4">
+          <p class="text-white text-sm">© 2024 BrainAi. All rights reserved.</p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="text-white hover:text-[#156bc1]">Privacy Policy</a>
+            <a href="#" class="text-white hover:text-[#156bc1]">Terms of Service</a>
+          </div>
+        </footer>
+        <!-- End of Footer Section -->
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+      </div>
+    </div>
+    
+  </body>
+</html>
